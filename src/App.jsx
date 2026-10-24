@@ -5,10 +5,12 @@ import './css/theme.css';
 import Navbar from './components/Navbar';
 import HeroStele from './components/HeroStele';
 import CasteOverview from './components/CasteOverview';
+import JudgeSimulator from './components/JudgeSimulator';
 import LawForm from './components/LawForm';
 import LawList from './components/LawList';
+import ScrollFeatures from './components/ScrollFeatures';
 
-// Menggunakan 4 pasal monumental dari halaman sebelumnya sebagai initial state
+// 4 pasal monumental bersejarah sebagai initial state
 const INITIAL_LAWS = [
   {
     id: 1,
@@ -16,7 +18,7 @@ const INITIAL_LAWS = [
     caste: 'Awilum',
     title: 'Hukum Mata Ganti Mata (Lex Talionis)',
     text: 'If a man destroy the eye of a man (gentleman), they shall destroy his eye.',
-    logic: 'Membatasi aksi balas dendam keluarga tanpa batas (blood feud) menjadi hukuman proporsional antar-bangsawan.'
+    logic: 'Membatasi aksi balas dendam keluarga tanpa batas (blood feud) menjadi hukuman proporsional resmi antar-bangsawan.'
   },
   {
     id: 2,
@@ -24,7 +26,7 @@ const INITIAL_LAWS = [
     caste: 'Mushkenum',
     title: 'Ganti Rugi oleh Kas Pemerintah Kota',
     text: 'If the brigand be not captured, the city and governor shall compensate him for whatever was lost.',
-    logic: 'Konsep awal asuransi sosial negara: keamanan wilayah adalah tanggung jawab langsung pemerintah daerah.'
+    logic: 'Konsep awal asuransi sosial negara: keamanan wilayah adalah tanggung jawab langsung pemerintah kota.'
   },
   {
     id: 3,
@@ -32,7 +34,7 @@ const INITIAL_LAWS = [
     caste: 'Wardum',
     title: 'Batas Perbudakan Utang (3 Tahun)',
     text: 'For three years they shall work in the house of their master; in the fourth year they shall be given their freedom.',
-    logic: 'Mencegah perbudakan permanen seumur hidup bagi warga asli Babilonia yang gagal melunasi utang komersial.'
+    logic: 'Mencegah perbudakan permanen seumur hidup bagi warga Babilonia yang gagal melunasi utang komersial.'
   },
   {
     id: 4,
@@ -61,25 +63,37 @@ export default function App() {
 
   return (
     <>
+      <ScrollFeatures />
       <Navbar />
+
       <main className="py-5">
         <div className="container">
           <HeroStele />
+
           <CasteOverview
             total={laws.length}
             awilumCount={awilumCount}
             mushkenumCount={mushkenumCount}
             wardumCount={wardumCount}
           />
+
+          <JudgeSimulator onAdoptVerdict={handleAddLaw} />
+
           <LawForm onAddLaw={handleAddLaw} />
+
           <LawList laws={laws} onDeleteLaw={handleDeleteLaw} />
         </div>
       </main>
 
       <footer className="site-footer py-4 mt-5 border-top border-secondary text-center small text-muted">
-        <p className="mb-0">
-          The Code of Hammurabi · Porting React + Vite · 5 Komponen Terstruktur
-        </p>
+        <div className="container">
+          <p className="mb-1 text-sandstone font-monospace">
+            The Code of Hammurabi · Porting React + Vite · Arsitektur Komponen Modular
+          </p>
+          <p className="mb-0 text-muted" style={{ fontSize: '0.8rem' }}>
+            Prasasti Diorit Hitam Abad ke-18 SM · R.F. Harper Translation &amp; Analisis Sosial Babilonia
+          </p>
+        </div>
       </footer>
     </>
   );

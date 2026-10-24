@@ -1,6 +1,7 @@
 export default function HeroStele() {
   return (
     <section id="beranda" className="stele-frame text-center mb-5">
+      {/* Bas-relief Puncak Stele: Hammurabi & Dewa Shamash */}
       <div className="stele-relief mx-auto mb-4" style={{ maxWidth: '680px' }}>
         <svg viewBox="0 0 500 180" width="100%" height="auto" aria-hidden="true" style={{ maxHeight: '160px' }}>
           <defs>
@@ -32,21 +33,39 @@ export default function HeroStele() {
 
       <h1 className="display-5 text-gold mb-3">KODE HAMMURABI</h1>
       <p className="lead text-sandstone reading-column mx-auto mb-4" style={{ maxWidth: '720px' }}>
-        Monolit batu diorit hitam setinggi 2,25 meter dari abad ke-18 SM. Memuat 282 klausul hukum tertulis terlengkap dari zaman kuno yang mengatur peradilan, perdagangan, keluarga, dan pertanggungjawaban sosial di Babilonia.
+        Monolit batu diorit hitam setinggi 2,25 meter dari abad ke-18 SM. Memuat 282 klausul hukum tertulis terlengkap dari zaman kuno yang mengatur peradilan, perdagangan, keluarga, profesi, dan pertanggungjawaban sosial di Babilonia.
       </p>
 
-      <div className="row g-3 justify-content-center mt-2 pt-3 border-top border-secondary reading-column mx-auto" style={{ maxWidth: '680px' }}>
-        <div className="col-4">
+      {/* 3 Tombol Aksi Cepat */}
+      <div className="d-flex flex-wrap justify-content-center gap-3 mb-4">
+        <a href="#daftar-titah" className="btn-hammurabi-gold">
+          <span>⚖</span> Baca Daftar Titah
+        </a>
+        <a href="#simulator-hakim" className="btn-hammurabi-outline">
+          <span>🏛</span> Sidang Hakim Babilonia
+        </a>
+        <a href="#pahat-titah" className="btn-hammurabi-outline">
+          <span>📜</span> Pahat Titah Baru
+        </a>
+      </div>
+
+      {/* Metadata Prasasti Stele */}
+      <div className="row g-3 justify-content-center mt-2 pt-3 border-top border-secondary reading-column mx-auto" style={{ maxWidth: '720px' }}>
+        <div className="col-6 col-md-3">
           <span className="d-block small text-muted text-uppercase">Tahun Terbit</span>
           <strong className="text-sandstone font-monospace">k. 1750 SM</strong>
         </div>
-        <div className="col-4">
+        <div className="col-6 col-md-3">
           <span className="d-block small text-muted text-uppercase">Material</span>
           <strong className="text-sandstone">Diorit Hitam</strong>
         </div>
-        <div className="col-4">
-          <span className="d-block small text-muted text-uppercase">Lokasi Fisik</span>
-          <strong className="text-sandstone">Louvre, Paris</strong>
+        <div className="col-6 col-md-3">
+          <span className="d-block small text-muted text-uppercase">Ditemukan</span>
+          <strong className="text-sandstone font-monospace">1901 (Susa)</strong>
+        </div>
+        <div className="col-6 col-md-3">
+          <span className="d-block small text-muted text-uppercase">Lokasi Saat Ini</span>
+          <strong className="text-sandstone">Museum Louvre, Paris</strong>
         </div>
       </div>
     </section>
